@@ -4,7 +4,6 @@ import requests
 ​
 ​
 ​
-# TODO: Implement functionality to search for a proof
 ​
 ​
 if __name__ == '__main__':
@@ -29,14 +28,10 @@ if __name__ == '__main__':
    return guess_hash[:6] == "000000"
 ​
    while True:
-        # TODO: Get the last proof from the server and look for a new one
-        # TODO: When found, POST it to the server {"proof": new_proof}
-        # TODO: If the server responds with 'New Block Forged'
-        # add 1 to the number of coins mined and print it. Otherwise,
-        # print the message from the server.
+
 ​
-   lp_res = requests.get(url=f'{node}/last_proof')
-    last_proof = lp_res.json().get("last_proof")
+    lp_response = requests.get(url=f'{node}/last_proof')
+    last_proof = lp_response.json().get("last_proof")
     print(last_proof)
     if(proof > 0):
         proof += 1
